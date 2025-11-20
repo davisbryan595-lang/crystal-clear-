@@ -143,7 +143,7 @@ export default function CrystalClearLanding() {
 
       if (response.ok) {
         setSubmitStatus("success")
-        setFormData({ name: "", email: "", phone: "", serviceType: "", message: "" })
+        setFormData({ name: "", phone: "", package: "", message: "" })
         setTimeout(() => setSubmitStatus(null), 5000)
       } else {
         setSubmitStatus("error")
