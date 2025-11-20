@@ -28,9 +28,8 @@ export default function CrystalClearLanding() {
   const [currentTestimonial, setCurrentTestimonial] = useState(0)
   const [formData, setFormData] = useState({
     name: "",
-    email: "",
     phone: "",
-    serviceType: "",
+    package: "",
     message: "",
   })
   const [formErrors, setFormErrors] = useState<Record<string, string>>({})
@@ -120,11 +119,9 @@ export default function CrystalClearLanding() {
   const validateForm = () => {
     const errors: Record<string, string> = {}
     if (!formData.name.trim()) errors.name = "Name is required"
-    if (!formData.email.trim()) errors.email = "Email is required"
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) errors.email = "Valid email required"
     if (!formData.phone.trim()) errors.phone = "Phone is required"
     if (!/^\d{10}$/.test(formData.phone.replace(/\D/g, ""))) errors.phone = "Valid 10-digit phone required"
-    if (!formData.serviceType.trim()) errors.serviceType = "Please select a service"
+    if (!formData.package.trim()) errors.package = "Please select a service"
     if (!formData.message.trim()) errors.message = "Message is required"
     setFormErrors(errors)
     return Object.keys(errors).length === 0
@@ -722,18 +719,6 @@ export default function CrystalClearLanding() {
 
                     <div>
                       <Input
-                        type="email"
-                        placeholder="Your Email"
-                        required
-                        value={formData.email}
-                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        className="bg-[#1a0723] border-[#634277] text-white placeholder:text-[#634277]"
-                      />
-                      {formErrors.email && <p className="text-red-400 text-sm mt-1">{formErrors.email}</p>}
-                    </div>
-
-                    <div>
-                      <Input
                         type="tel"
                         placeholder="Your Phone"
                         required
@@ -746,18 +731,18 @@ export default function CrystalClearLanding() {
 
                     <div>
                       <select
-                        value={formData.serviceType}
-                        onChange={(e) => setFormData({ ...formData, serviceType: e.target.value })}
+                        value={formData.package}
+                        onChange={(e) => setFormData({ ...formData, package: e.target.value })}
                         className="w-full bg-[#1a0723] border border-[#634277] text-white rounded-md px-3 py-2 placeholder:text-[#634277]"
                         required
                       >
                         <option value="">Select a Service</option>
-                        <option value="Basic Detail">Basic Detail - $150</option>
-                        <option value="Premium Detailing">Premium Detailing - $250</option>
-                        <option value="Diamond Detail">Diamond Detail - $350</option>
+                        <option value="Basic detail (interior only)">Basic Detail - $150</option>
+                        <option value="Premium detail (full inside and out)">Premium Detailing - $250</option>
+                        <option value="Diamond Detail (Paint Correction Detail)">Diamond Detail - $350</option>
                         <option value="Paint Protection">Paint Protection - $700</option>
                       </select>
-                      {formErrors.serviceType && <p className="text-red-400 text-sm mt-1">{formErrors.serviceType}</p>}
+                      {formErrors.package && <p className="text-red-400 text-sm mt-1">{formErrors.package}</p>}
                     </div>
 
                     <div>
