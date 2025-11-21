@@ -265,6 +265,177 @@ export default function CrystalClearLanding() {
           </div>
         </section>
 
+        {/* Services & Pricing Section */}
+        <motion.section
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1 }}
+          className="relative z-10 py-32 border-t border-white/10 backdrop-blur-sm bg-white/5"
+        >
+          <div className="container mx-auto px-4 max-w-4xl">
+            <motion.h2
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="text-5xl md:text-6xl font-black text-center mb-4 text-gray-900"
+            >
+              Our Services
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.1 }}
+              className="text-center text-xl text-gray-600 mb-16 font-light"
+            >
+              Elite detailing packages crafted for perfection
+            </motion.p>
+
+            <div className="grid md:grid-cols-3 gap-8">
+              {[
+                {
+                  name: "Essential Detail",
+                  price: "$149",
+                  features: ["Interior vacuum", "Window cleaning", "Tire shine", "Panel wipe down"],
+                  desc: "Perfect for regular maintenance"
+                },
+                {
+                  name: "Premium Detail",
+                  price: "$249",
+                  features: ["Full interior deep clean", "Exterior wash & wax", "Paint sealant", "Tire dressing", "Ceramic coating"],
+                  desc: "Our most popular service",
+                  featured: true
+                },
+                {
+                  name: "Diamond Detail",
+                  price: "$399",
+                  features: ["Everything in Premium", "Paint correction", "Clay bar treatment", "3-month sealant", "Leather conditioning"],
+                  desc: "Ultimate luxury finish"
+                },
+              ].map((service, idx) => (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8, delay: idx * 0.2 }}
+                  className={`rounded-2xl p-8 backdrop-blur-xl border transition-all ${
+                    service.featured
+                      ? "bg-gradient-to-br from-[#9630b7]/30 to-[#cd507e]/20 border-[#9630b7]/50 shadow-2xl"
+                      : "bg-white/10 border-white/20 hover:border-[#9630b7]/30"
+                  }`}
+                >
+                  {service.featured && (
+                    <div className="inline-block px-3 py-1 bg-[#9630b7] text-white text-xs font-bold rounded-full mb-4">
+                      MOST POPULAR
+                    </div>
+                  )}
+                  <h3 className="text-2xl font-bold text-gray-900 mb-2">{service.name}</h3>
+                  <p className="text-gray-600 text-sm mb-4 font-light">{service.desc}</p>
+                  <div className="text-4xl font-black text-[#9630b7] mb-6">{service.price}</div>
+                  <ul className="space-y-3 mb-8">
+                    {service.features.map((feature, fidx) => (
+                      <li key={fidx} className="flex items-center gap-3 text-gray-700 text-sm">
+                        <span className="text-[#cd507e]">✓</span>
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+                  <Button
+                    onClick={() => setIsMobileFormOpen(true)}
+                    className="w-full bg-gradient-to-r from-[#9630b7] to-[#cd507e] text-white border-0 font-bold py-4 rounded-lg hover:from-[#8021d7] hover:to-[#b13f9e] transition-all"
+                  >
+                    Book Now
+                  </Button>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </motion.section>
+
+        {/* Facility & Location Section */}
+        <motion.section
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1 }}
+          className="relative z-10 py-32 border-t border-white/10"
+        >
+          <div className="container mx-auto px-4 max-w-5xl">
+            <motion.h2
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="text-5xl md:text-6xl font-black text-center mb-4 text-gray-900"
+            >
+              Our Facility
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.1 }}
+              className="text-center text-xl text-gray-600 mb-16 font-light"
+            >
+              State-of-the-art equipment & professional workspace
+            </motion.p>
+
+            <div className="grid md:grid-cols-2 gap-8 mb-8">
+              {[
+                "https://images.pexels.com/photos/6872606/pexels-photo-6872606.jpeg",
+                "https://images.pexels.com/photos/20051443/pexels-photo-20051443.jpeg",
+              ].map((src, idx) => (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8, delay: idx * 0.2 }}
+                  className="relative aspect-video rounded-2xl overflow-hidden border border-white/20 shadow-2xl"
+                >
+                  <Image
+                    src={src}
+                    alt={`Facility ${idx + 1}`}
+                    fill
+                    className="object-cover hover:scale-105 transition-transform duration-500"
+                  />
+                </motion.div>
+              ))}
+            </div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-8 md:p-12"
+            >
+              <div className="grid md:grid-cols-3 gap-8">
+                {[
+                  { title: "Professional Equipment", desc: "Latest detailing tools & pressure washers" },
+                  { title: "Mobile Ready", desc: "We bring everything to your location" },
+                  { title: "Quality Assured", desc: "Certified products & techniques" },
+                ].map((item, idx) => (
+                  <motion.div
+                    key={idx}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8, delay: 0.5 + idx * 0.1 }}
+                    className="text-center"
+                  >
+                    <h3 className="text-lg font-bold text-gray-900 mb-2">{item.title}</h3>
+                    <p className="text-gray-600 text-sm font-light">{item.desc}</p>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          </div>
+        </motion.section>
+
         {/* Mobile Bottom Sheet Form */}
         <AnimatePresence>
           {isMobileFormOpen && (
@@ -324,7 +495,7 @@ export default function CrystalClearLanding() {
         </AnimatePresence>
 
         {/* Minimal Footer */}
-        <footer className="relative z-10 border-t border-white/10 backdrop-blur-sm bg-white/5 py-8 mt-12">
+        <footer className="relative z-10 border-t border-white/10 backdrop-blur-sm bg-white/5 py-8">
           <div className="container mx-auto px-4 flex items-center justify-between">
             <p className="text-gray-600 text-sm font-light">© 2025 Crystal Clear Auto Detailing</p>
             <div className="flex gap-6">
