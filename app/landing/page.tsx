@@ -58,10 +58,10 @@ export default function CrystalClearLanding() {
   }
 
   return (
-    <div className="min-h-screen bg-white text-gray-900 overflow-hidden">
+    <div className="min-h-screen bg-[#1a0723] text-white overflow-hidden">
       {/* Sticky Header */}
       <motion.header
-        className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200"
+        className="sticky top-0 z-50 bg-[#1a0723]/95 backdrop-blur-sm border-b border-[#421272]"
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.5 }}
@@ -73,11 +73,11 @@ export default function CrystalClearLanding() {
               <div className="text-lg font-bold bg-gradient-to-r from-[#9630b7] to-[#cd507e] bg-clip-text text-transparent">
                 Crystal Clear
               </div>
-              <div className="text-xs text-[#9630b7]">Auto Detailing</div>
+              <div className="text-xs text-[#ac73e2]">Auto Detailing</div>
             </div>
           </motion.div>
           <motion.a href="tel:7206412574" whileHover={{ scale: 1.05 }}>
-            <Button className="bg-gradient-to-r from-[#9630b7] to-[#7c2887] hover:from-[#8021d7] hover:to-[#6b2276] text-white border-0 font-semibold">
+            <Button className="bg-gradient-to-r from-[#9630b7] to-[#b13f9e] hover:from-[#8021d7] hover:to-[#cd507e] text-white border-0 font-semibold">
               <Phone className="w-4 h-4 mr-2" />
               (720) 641-2574
             </Button>
@@ -86,7 +86,9 @@ export default function CrystalClearLanding() {
       </motion.header>
 
       {/* Main Hero Section - Continuous throughout page */}
-      <section className="relative min-h-screen flex flex-col items-center justify-center bg-white overflow-hidden pt-20">
+      <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden pt-20">
+        <div className="media-bg media-bg--home" aria-hidden="true" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#421272] via-[#1a0723] to-[#634277]" />
         <div className="container mx-auto px-4 w-full max-w-5xl flex flex-col items-center">
           {/* Hero Image & Main Content */}
           <motion.div
